@@ -9,7 +9,10 @@
       "types": "./dist/main.d.cts",
       "default": "./dist/main.cjs"
     },
-    "import": "./src/main.ts"
+    "import": {
+      "types": "./src/schema/user.ts",
+      "default": "./src/main.ts"
+    }
   },
   "scripts": {
     "dev": "tsx --watch src/main.ts",
