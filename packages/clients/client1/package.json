@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "pnpm build:deps && tsc && vite build",
-    "build:deps": "cd ../.. && pnpm build --filter @teamsparta-japan/shared1",
+    "build:deps": "cd ../.. && pnpm build:common",
     "preview": "vite preview"
   },
   "dependencies": {
