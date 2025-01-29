@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "tsx --watch src/main.ts",
     "build": "tsup",
+    "prebuild": "pnpm install",
     "build:dev": "tsup --watch"
   },
   "keywords": [],

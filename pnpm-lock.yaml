@@ -75,8 +75,6 @@ importers:
         specifier: ^5
         version: 5.7.3
 
-  packages/server1: {}
-
   packages/servers:
     dependencies:
       '@nestjs/common':
