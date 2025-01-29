@@ -1,8 +1,6 @@
 import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
-import { range } from 'lodash'
 import ky from 'ky'
 import { User } from '@teamsparta-japan/shared1'
 
