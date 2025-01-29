@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build:deps && tsc && vite build",
-    "build:deps": "cd ../.. && pnpm build:common",
+    "build": "tsc && vite build",
+    "prebuild": "cd ../.. && pnpm build:common",
     "preview": "vite preview"
   },
   "dependencies": {
