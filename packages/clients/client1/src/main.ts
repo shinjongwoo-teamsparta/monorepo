@@ -1,40 +1,35 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import ky from 'ky'
-import { User } from '@teamsparta-japan/shared1'
+import { User, userSchema } from '@teamsparta-japan/shared1'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-    <p>
-      <button id="fetcher" type="button">Fetch</button>
-    </p>
+  <h1>Client 1</h1>
+  <hr>
+  <form id="form">
+    <input name="name" type="text" id="name" placeholder="Name">
+    <input name="age" type="number" id="age" placeholder="Age">
+    <input name="email" type="email" id="email" placeholder="Email">
+    <button type="submit">Submit</button>
+  </form>
   </div>
 `
 
-document.querySelector<HTMLButtonElement>('#fetcher')!.addEventListener('click', () => {
-  const payload: User = {
-    name: 'John',
-    age: 1010,
+document.querySelector<HTMLButtonElement>('#form')!.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const formData = new FormData(event.target as HTMLFormElement)
+  const raw: User = {
+    name: formData.get('name') as string,
+    age: Number(formData.get('age')),
+    email: formData.get('email') as string,
     timestamp: new Date(),
-    email: 'zod@dot.com',
   }
-  ky.post('http://localhost:3215', {
-    json: payload,
-  })
-    .then(response => response.text())
-    .then(text => console.log(text))
+  const result = userSchema.safeParse(raw)
+
+  if (!result.success) {
+    console.log('Form data is invalid')
+    console.log(result.error.format())
+    return
+  }
+  console.log('Form data is valid')
+  console.log(result.data)
 })
