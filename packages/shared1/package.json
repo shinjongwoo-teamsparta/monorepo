@@ -10,8 +10,8 @@
       "default": "./dist/main.cjs"
     },
     "import": {
-      "types": "./src/schema/user.ts",
-      "default": "./src/main.ts"
+      "types": "./dist/main.d.ts",
+      "default": "./dist/main.js"
     }
   },
   "scripts": {
