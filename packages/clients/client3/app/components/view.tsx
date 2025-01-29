@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import type { User } from "@teamsparta-japan/shared1"
+import { userSchema, type User } from "@teamsparta-japan/shared1"
 
 
 const default_value: Readonly<User> = {
@@ -16,15 +16,14 @@ function View() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(user);
-    // const result = userSchema.safeParse(user);
-    // if (!result.success) {
-    //   console.log("Form data is invalid");
-    //   console.log(result.error);
-    // } else {
-    //   console.log("Form data is valid");
-    //   console.log(user);
-    // }
+    const result = userSchema.safeParse(user);
+    if (!result.success) {
+      console.log("Form data is invalid");
+      console.log(result.error);
+    } else {
+      console.log("Form data is valid");
+      console.log(user);
+    }
   };
 
   return (
