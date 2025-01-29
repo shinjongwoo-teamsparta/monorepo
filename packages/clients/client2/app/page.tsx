@@ -9,6 +9,7 @@ export default function Home() {
   const rawUser: User = {
     name: "John Doe",
     age: 42,
+    email: "john@doe.com",
     timestamp: new Date(),
   }
 
