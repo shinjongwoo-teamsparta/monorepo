@@ -1,13 +1,8 @@
 "use client"
 
 import { useState } from "react";
+import type { User } from "@teamsparta-japan/shared1"
 
-type User = {
-  name: string;
-  age: number;
-  email: string;
-  timestamp: Date;
-};
 
 const default_value: Readonly<User> = {
   name: "",
@@ -21,7 +16,7 @@ function View() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(user);  
+    console.log(user);
     // const result = userSchema.safeParse(user);
     // if (!result.success) {
     //   console.log("Form data is invalid");
