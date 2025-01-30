@@ -1,0 +1,11 @@
+on: 
+  push:
+    paths:
+      - 'packages/clients/client3/**'
+    branches:
+      - foo
+jobs:
+  foo1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "foo1"
