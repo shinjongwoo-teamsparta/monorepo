@@ -3,7 +3,7 @@ import View from "./components/view";
 function Home() {
   return (
     <div>
-      <p>Hello</p>
+      <p>hello</p>
       <View />
     </div>
   )
