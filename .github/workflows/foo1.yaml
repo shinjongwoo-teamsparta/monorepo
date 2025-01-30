@@ -1,3 +1,5 @@
+name: Run foo1
+run-name: ${{ github.actor }} is testing out foo1 🚀
 on: 
   push:
     paths:
